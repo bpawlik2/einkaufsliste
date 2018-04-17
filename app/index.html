@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase CRUD Javascript</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Firebase CRUD with Javascript Pawlik
+        <br/><small><em>Einkaufsliste</em></small>
+    </h1>
+
+
+    <!-- add item module -->
+    <section id="add-artikel-module" >
+        <button id="open-add-artikel-form-btn">+</button>
+        <form>
+            <h2>Artikel hinzufügen</h2>
+            Name:<br>
+            <input type='text' data-key='name' class='artikel-input'><br>
+            Anzahl:<br>
+            <input type='text' data-key='anzahl' class='artikel-input'><br>
+            <button type='button' id="add-artikel-btn">hinzufügen</button>
+        </form>
+    </section>
+
+    <!-- edit artikel module -->
+    <section id="edit-artikel-module">
+        <form>
+            <h2>Artikel ändern</h2>
+            <input type="hidden" class="edit-artikelid">
+            Name:<br>
+            <input type='text' data-key='name' class='edit-artikel-input'><br>
+            Anzahl:<br>
+            <input type='text' data-key='anzahl' class='edit-artikel-input'><br>
+            <button type='button' id="edit-artikel-btn">speichern</button>
+        </form>
+    </section>
+
+
+    <!-- show artikel module -->
+    <ul id="artikel-list"></ul>
+    <div id="artikel-detail"></div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+  </body>
+
+</html>
