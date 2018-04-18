@@ -13,14 +13,14 @@ https://github.com/softauthor/firebase-crud-javascript-02
 
 Für die Umsetzung wurde Firebase verwendet, welche sowohl die Datenbank als auch die Synchronisation dieser übernimmt.
 
-Bereitgestellt wird der Service mittels Node.js
+Bereitgestellt wird der Service mittels Node.js, welches unter folgendem Link heruntergeladen werden kann.
 
 https://nodejs.org/en/
 
 
-Jedes Firebase Projekt besitzt seinen eigenen Authentication Key. Dieser muss bei einem neuen Projekt angepasst werden. Hier wird dieser in app.js festgelegt.
+Jedes Firebase Projekt besitzt seinen eigenen Authentication Key. Dieser muss bei einem neuen Projekt angepasst werden. In diesem Beispiel wird wird dies in app.js festgelegt und muss angepasst werden.
 
-
+## Hosting mit Firebase
 Letztlich muss der Service gestartet werden. Dazu sind einige Befehle in der CLI notwendig.
 
 Firebase tools installieren
@@ -28,7 +28,6 @@ Firebase tools installieren
 	npm install -g firebase-tools
 
 Anmeldung mittels Google und Initialisierungsprozess 
-
 
 	firebase login
 	firebase init
@@ -39,5 +38,5 @@ Nach der Initialisierung kann das Projekt gestartet werden.
 	
 Danach ist das Projekt unter https://[project_name].firebaseapp.com erreichbar
 
-https://pawlikeinkaufsliste.firebaseapp.com/
+Bsp. https://pawlikeinkaufsliste.firebaseapp.com/
 
