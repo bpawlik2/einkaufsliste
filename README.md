@@ -62,6 +62,8 @@ Ein detailreicher Vergleich dieser und noch anderer ist hier zu finden:
 
 https://medium.baqend.com/real-time-databases-explained-why-meteor-rethinkdb-parse-and-firebase-dont-scale-822ff87d2f87
 
+https://dzone.com/articles/firebase-vs-couchbase-for-server-side-differences
+
 Gründe für die Wahl von Firebase:
 
 + Kann gleichzeitig von mehreren Usern verwendet werden, Synchronisation funktioniert
@@ -74,6 +76,7 @@ Nachteile:
 - Es können keine komplexen Queries durchgeführt werden, was ist diesem Zusammenhang aber nicht weiter schlimm ist, da die CRUD Funktionen vordefiniert sind.
 - Datenbank liegt in den Händen von Firebase, es sind keine anderen Anbindungen möglich
 
+Firebase ermöglicht es mit nur wenigen clicks seine Anbindung einzubauen und zu hosten und scheint, zumindest auf den ersten Blick, die einfachste und schnellste Variante zu sein, kleinere Webapps zu deployen und automatisch zu synchronisieren. Da die Einlernphase bei den Konkurrenten höher sein soll wurde hier Firebase gewählt. Nachteil dabei ist jedoch, dass Firebase dafür weniger Anpassungsmöglichkeiten hat, was bei einem kleineren Projekt jedoch ein akzeptabler Preis ist.
 
 ## Dokumentation der gewählten Schnittstelle
 
