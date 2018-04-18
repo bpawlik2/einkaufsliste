@@ -1,7 +1,3 @@
-
-// !IMPORTANT: REPLACE WITH YOUR OWN CONFIG OBJECT BELOW
-
-
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyAmOQ1MyCR55pZ1oypCIo-Vfya9XzB0MGI",
@@ -11,8 +7,6 @@ var config = {
 	storageBucket: "pawlikeinkaufsliste.appspot.com",
 	messagingSenderId: "843413985525"
 };
-
-
 firebase.initializeApp(config);
 
 // Firebase Database Reference and the child
@@ -20,7 +14,7 @@ const dbRef = firebase.database().ref();
 const artikelRef = dbRef.child('artikel');
 
 
-	readartikelData(); 
+readartikelData(); 
 	
 
 // --------------------------
@@ -28,11 +22,11 @@ const artikelRef = dbRef.child('artikel');
 // --------------------------
 function readartikelData() {
 
-	const artikelListUI = document.getElementById("artikel-list");
 
 	artikelRef.on("value", snap => {
+		var tableRef = document.getElementById('listOfAllElements').getElementsByTagName('tbody')[0];
 
-		artikelListUI.innerHTML = ""
+		tableRef.innerHTML = ""
 
 		snap.forEach(childSnap => {
 
@@ -55,14 +49,24 @@ function readartikelData() {
 			deleteIconUI.setAttribute("artikelid", key);
 			deleteIconUI.addEventListener("click", deleteButtonClicked)
 			
-			$li.innerHTML = value.name;
-			$li.append(editIconUI);
-			$li.append(deleteIconUI);
-
-			$li.setAttribute("artikel-key", key);
-			$li.addEventListener("click", artikelClicked)
-			artikelListUI.append($li);
-
+			// Insert a row in the table at the last row
+			var newRow   = tableRef.insertRow(tableRef.rows.length);
+			
+			// Insert a cell in the row at index 0
+			var newCell1  = newRow.insertCell(0);
+			var newCell2  = newRow.insertCell(1);
+			var newCell3  = newRow.insertCell(2);
+			
+			// Append a text node to the cell
+			var rowName  = document.createTextNode(value.name);
+			var rowAnz  = document.createTextNode(value.anzahl);
+			
+			
+			
+			newCell1.appendChild(rowName);
+			newCell2.appendChild(rowAnz);
+			newCell3.appendChild(editIconUI);
+			newCell3.appendChild(deleteIconUI);
  		});
 
 
@@ -70,7 +74,7 @@ function readartikelData() {
 
 }
 
-
+/**
 
 function artikelClicked(e) {
 
@@ -95,7 +99,7 @@ function artikelClicked(e) {
 
 }
 
-
+**/
 
 
 
@@ -128,9 +132,8 @@ function addartikelBtnClicked() {
 	artikelRef.push(newartikel)
 
     
-   console.log(myPro)
-   
 
+	$("#exampleModal").modal("hide")
 
 }
 
@@ -156,7 +159,8 @@ function deleteButtonClicked(e) {
 // --------------------------
 function editButtonClicked(e) {
 	
-	document.getElementById('edit-artikel-module').style.display = "block";
+	//document.getElementById('edit-artikel-module').style.display = "block";
+	$('#exampleModal2').modal('show');
 
 	//set artikel id to the hidden input field
 	document.querySelector(".edit-artikelid").value = e.target.getAttribute("artikelid");
@@ -204,8 +208,8 @@ function saveartikelBtnClicked(e) {
 
 	artikelRef.update(editedartikelObject);
 
-	document.getElementById('edit-artikel-module').style.display = "none";
-
+	//document.getElementById('edit-artikel-module').style.display = "none";
+	$("#exampleModal2").modal("hide")
 
 }
 
